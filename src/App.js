@@ -11,6 +11,7 @@ import PrivateRoute from "./components/adminComponent/PrivateRoute";
 import CariBuku from "./pages/userPage/CariBukuPage";
 import DetailBookPage from "./pages/userPage/DetailBookPage";
 import HistoryPeminjamanPage from "./pages/userPage/PeminjamanPage";
+import ProfilePage from "./pages/userPage/ProfilPage";
 import { BiHome } from "react-icons/bi";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/search" element={<CariBuku />} />
         <Route path="/books/:id" element={<DetailBookPage />} />
         <Route path="/peminjaman" element={<HistoryPeminjamanPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
 
         {/* Halaman admin dilindungi oleh PrivateRoute */}
         <Route
