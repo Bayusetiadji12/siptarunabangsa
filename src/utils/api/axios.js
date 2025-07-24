@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "siptarunabangsa-be-production.up.railway.app/api",
+  baseURL: "https://siptarunabangsa-be-production.up.railway.app/api",
   // baseURL: "http://localhost:4000/api",
 });
 
