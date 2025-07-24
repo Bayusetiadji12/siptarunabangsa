@@ -1,45 +1,17 @@
   import axios from "./api/axios.js";
   import swal from "sweetalert";
 
-  // Cek input dasar
-  // const _checkInput = (user) => {
-  //   const { name, email, password, nis } = user;
-  //   if (!name || !email || !password || !nis) {
-  //     swal({
-  //       title: "Gagal!",
-  //       text: "Mohon lengkapi semua data.",
-  //       icon: "error",
-  //       button: "Ok",
-  //     });
-  //     return false;
-  //   }
-  //   return true;
-  // };
-
   //Register User
   const registerUser = async (userData) => {
     const response = await axios.post("/auth/register", userData);
     return response.data.data;
   };
-  // const registerUser = async (user) => {
-  //   if (!_checkInput(user)) return;
-
-  //   try {
-  //     const response = await axios.post("/users/register", user);
-  //     swal("Berhasil", "Akun berhasil dibuat", "success");
-  //     return response.data;
-  //   } catch (error) {
-  //     swal("Gagal", error.response?.data?.message || "Terjadi kesalahan", "error");
-  //   }
-  // };
 
   const loginUser = async (email, password) => {
     const response = await axios.post("/auth/login", {
       email,
       password,
     });
-
-    // response.data bentuknya: { data: { token, message } }
     return response.data.data;
   };
 
@@ -76,25 +48,52 @@ const getAllUsers = async (params = { page: 1, limit: 10 }) => {
   return response.data.data;
 };
 
+// const updateUser = async (id, data) => {
+//   const formData = new FormData();
+
+//   // Tambahkan data satu per satu ke FormData
+//   for (const key in data) {
+//     if (data[key] !== undefined && data[key] !== null) {
+//       formData.append(key, data[key]);
+//     }
+//   }
+
+//   const res = await axios.put(`/users/${id}`, formData, {
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+
+//   return res.data.data;
+// };
+
+
+const updateUser = async (id, data) => {
+  const res = await axios.put(`/users/${id}`, data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return res.data.data;
+};
 
   //Update User (send FormData)
-  const updateUser = async (userId, user) => {
-    const formData = new FormData();
-    for (const key in user) {
-      formData.append(key, user[key]);
-    }
+  // const updateUser = async (userId, user) => {
+  //   const formData = new FormData();
+  //   for (const key in user) {
+  //     formData.append(key, user[key]);
+  //   }
 
-    try {
-      const res = await axios.put(`/users/${userId}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+  //   try {
+  //     const res = await axios.put(`/users/${userId}`, formData, {
+  //       headers: { "Content-Type": "multipart/form-data" },
+  //     });
 
-      swal("Berhasil", "Pengguna berhasil diperbarui", "success");
-      return res.data;
-    } catch (err) {
-      swal("Gagal", err?.response?.data?.message || "Terjadi kesalahan", "error");
-    }
-  };
+  //     return res.data;
+  //   } catch (err) {
+  //     swal("Gagal", err?.response?.data?.message || "Terjadi kesalahan", "error");
+  //   }
+  // };
 
   //Delete User (admin)
   const deleteUser = async (userId) => {

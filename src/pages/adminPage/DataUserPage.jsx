@@ -71,7 +71,7 @@ const DataUser = () => {
   };
 
   const handleSubmitUser = async () => {
-    const { name, email, password, nis, phone, gender } = formData;
+    const { name, email, nis, phone, gender } = formData;
 
     // Validasi data wajib
     if (!name || !email || !nis || !phone || !gender) {
@@ -180,7 +180,7 @@ const DataUser = () => {
 
   return (
     <AdminLayout>
-      <h2 className="text-2xl font-semibold mb-4">Data User</h2>
+      <h2 className="text-2xl font-semibold mb-4">Data Anggota</h2>
 
       <div className="flex items-center mb-4">
         <button
