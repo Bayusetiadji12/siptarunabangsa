@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  // baseURL: "https://siptarunabangsa-be-production.up.railway.app/api",
-  baseURL: "http://localhost:4000/api",
+  baseURL: "https://siptarunabangsa-be-production.up.railway.app/api",
+  // baseURL: "http://localhost:4000/api",
 });
 
 instance.interceptors.request.use((config) => {
