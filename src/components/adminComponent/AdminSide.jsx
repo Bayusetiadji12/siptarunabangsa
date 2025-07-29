@@ -64,7 +64,7 @@ const AdminSidebar = () => {
           className="mt-auto flex items-center gap-3 px-4 py-2 hover:bg-red-600 rounded transition-all"
         >
           <FaSignOutAlt />
-          Logout
+          Keluar
         </button>
       </nav>
     </aside>
